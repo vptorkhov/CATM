@@ -1,0 +1,93 @@
+mixin sIndex(data)
+	// start sIndex
+	+b.sIndex#sIndex&attributes(attributes)
+		+e.main
+			+work-permit()
+		+e.filter
+	// end sIndex
+
+mixin work-permit()
+	+b.work-permit.tabs
+		+e.row.tabs__caption.swiper
+			.swiper-wrapper
+				+e.item.tabs__btn.swiper-slide.active Все
+				+e.item.tabs__btn.swiper-slide На согласовании
+				+e.item.tabs__btn.swiper-slide Подписанные
+				+e.item.tabs__btn.swiper-slide Черновики
+				+e.item.tabs__btn.swiper-slide Архив
+		+b.work-permit-list
+			+e.wrap
+				h2 Наряд-допуски
+				button.btn.btn-primary.btn-with-icon
+					img(src="img/svg/plus.svg", alt="")
+					span Добавить новый наряд
+			+e.sort
+				span Сортировать по:
+				+e.sort-btn
+					+icon(`sort-line`)
+					span Номеру
+					+icon(`sort-triangle`)
+			.tabs-content-wrap 
+				.tabs__content.active 
+					+work-permit-list(1)
+				.tabs__content
+					+work-permit-list(2)
+				.tabs__content
+					+work-permit-list(3)
+				.tabs__content
+					+work-permit-list(4)
+				.tabs__content
+					+work-permit-list(5)
+
+
+mixin work-permit-list(variant)
+	if (variant == 1)
+		+work-permit-item(`new`)
+		+work-permit-item(`done`)
+		- for(x=0;x<6;x++)
+			+work-permit-item(`accepting`)
+		+work-permit-item(`archive`)
+	if (variant == 2)
+		- for(x=0;x<6;x++)
+			+work-permit-item(`accepting`)
+	if (variant == 3)
+		+work-permit-item(`done`)
+	if (variant == 4)
+		+work-permit-item(`new`)
+	if (variant == 5)
+		+work-permit-item(`archive`)
+
+mixin work-status(status,className)
+	+b.work-status(class=`--${className}`)!=status
+
+mixin work-permit-item(status)
+	+b.work-permit-item(href="#")
+		+e.head
+			+e.head-status
+				if (status==`new`)
+					+work-status(`Новый`,status)
+				if (status==`done`)
+					+work-status(`Подписанный`,status)
+				if (status==`accepting`)
+					+work-status(`На согласовании`,status)
+				if (status==`archive`)
+					+work-status(`Архив`,status)
+				+e.create
+					.title Создан:
+					.caption 17.08.2022
+				+e.prolong
+					.title Продлен:
+					.caption 17.08.2022
+			+e.badge 2 Опасные работы на смежных участках
+		+e.body
+			+e.body-main-info
+				+e.title Наряд-допуск №12344
+				+e.caption Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio, cum!
+			+e.body-caption-info
+				+e.workers
+					.title Работников:
+					.caption 4
+				+e.boss
+					.title Руководитель:
+					.caption Сташевский А.В
+				+e.address Месторождение 542, Цех 3, уст.1

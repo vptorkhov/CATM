@@ -496,3 +496,24 @@ iframe {
 		background-color: rgba(26, 114, 254, 0.2);
 	}
 }
+.btn-with-icon{
+	.icon{
+		width: 20px;
+		height: 20px;
+		margin-right: 10px;
+	}
+	img{
+		width: 20px;
+		height: 20px;
+		margin-right: 10px;
+	}
+	display: flex;
+	align-items: center;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+	font-weight: 700;
+}
