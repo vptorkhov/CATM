@@ -1,9 +1,11 @@
 mixin topLine()
 	// start topLine
-	+b.topLine.section#topLine&attributes(attributes)
-		.container
-			+b.section-title.text-center
-				h2 topLine
-				
-			.row
+	+b.topLine#topLine&attributes(attributes)
+		+e.logo(href="/")
+			img(src="img/svg/logo.svg", alt="")
+		+e.block
+			+e.BUTTON.notifications--new(type="button")
+				+icon(`notifications`)
+			+e.profile(href="#")
+				img(src="img/@2x/avatar.png", alt="")
 	// end topLine

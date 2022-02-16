@@ -1,0 +1,67 @@
+mixin sMainMenu(active)
+	// start sMainMenu
+	+b.sMainMenu#sMainMenu&attributes(attributes)
+		ul
+			if (active == 1)
+				li
+					+e.item.active(href="#")
+						+icon(`menu-1`)
+						span Наряд-допуски
+			else
+				li
+					+e.item(href="#")
+						+icon(`menu-1`)
+						span Наряд-допуски
+			if (active == 2)
+				li
+					+e.item.active(href="#")
+						+icon(`menu-2`)
+						span Работники
+			else
+				li
+					+e.item(href="#")
+						+icon(`menu-2`)
+						span Работники
+			if (active == 3)
+				li
+					+e.item.active(href="#")
+						+icon(`menu-3`)
+						span Инструктажи
+						+e.item-new 1
+			else
+				li
+					+e.item(href="#")
+						+icon(`menu-3`)
+						span Инструктажи
+						+e.item-new 1
+			if (active == 4)
+				li
+					+e.item.active(href="#")
+						+icon(`menu-4`)
+						span Обучение
+			else
+				li
+					+e.item(href="#")
+						+icon(`menu-4`)
+						span Обучение
+			if (active == 5)
+				li
+					+e.item.active(href="#")
+						+icon(`menu-5`)
+						span Документы
+			else
+				li
+					+e.item(href="#")
+						+icon(`menu-5`)
+						span Документы
+			if (active == 6)
+				li
+					+e.item.active(href="#")
+						+icon(`menu-6`)
+						span Обратная связь
+			else
+				li
+					+e.item(href="#")
+						+icon(`menu-6`)
+						span Обратная связь
+	// end sMainMenu

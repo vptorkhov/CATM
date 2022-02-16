@@ -2,8 +2,6 @@ extends ../layout/main.pug
 
 
 include ../blocks/topLine/_topLine.pug
-include ../blocks/sMainBlock/_sMainBlock.pug
-include ../blocks/sMainMenu/_sMainMenu.pug
 
 
 block variables
@@ -11,11 +9,13 @@ block variables
 	- let  bg= null
 
 block title
-	- let  title= 'Главная'
+	- let  title= 'Страницы'
 	title= title
 block pagecontent
-	+topLine
-	+sMainBlock
-		+sMainMenu(1)
+	ol.mt-4.ms-4
+		li
+			a.mb-3.ms-3(href="index.html") Главная
+		li
+			a.mb-3.ms-3(href="00-modal.html") Модалки
 
 
